@@ -3,7 +3,7 @@ const webpack = require("webpack");
 
 const config = {
   context: __dirname,
-  entry: ["./client/index.jsx"],
+  entry: ["babel-polyfill", "./client/index.jsx"],
   devtool: "cheap-eval-source-map",
   output: {
     path: path.join(__dirname, "public"),
@@ -53,4 +53,3 @@ if (process.env.NODE_ENV === "production") {
 }
 
 module.exports = config;
- 
