@@ -47,7 +47,7 @@ class ShowQuestions extends Component {
 		return formData !== null ? (
 			<MuiThemeProvider muiTheme={getMuiTheme()}>
 				<div style={{ padding: 15 }}>
-					<h2>Elders Coding Challenge</h2>
+					<h2 className="main-title text-center">Elders Coding Challenge</h2>
 					<ShowResults onRef={ref => (this.showresults = ref)} />
 					<Form
 						formData={formData}
@@ -57,7 +57,7 @@ class ShowQuestions extends Component {
 					/>
 				</div>
 			</MuiThemeProvider>
-		) : (<div>
+		) : (<div className="spinner">
 			<Spinner />
 			</div>		);
 	}

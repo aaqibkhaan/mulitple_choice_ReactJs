@@ -4,6 +4,18 @@ import React from "react";
 import { Field, reduxForm } from "redux-form";
 import { RadioButton, RadioButtonGroup } from "material-ui/RadioButton";
 
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+  padding-bottom: 3rem;
+
+`;
+
+const Label = styled.label`
+padding-bottom: 1rem;
+
+`
+
 
 // Component Responsible for rendering Field
 
@@ -25,14 +37,15 @@ const { handleSubmit, pristine, reset, submitting } = props;
 
   const allQuestions = props.formData.questions.map(question => {
     return (
+      <Wrapper>
       <div key={question.id} {...question} className="list-group text-center">
-        <strong><label htmlFor={question.question}>{question.question}</label></strong>
+        <strong><Label htmlFor={question.question}>{question.question}</Label></strong>
         <div>
           <Field
             key={question.id}
             name={question.id}
             component={renderRadioGroup}
-            className="list-group-item"
+            
           >
             {question.options.map(option => {
               return (
@@ -41,12 +54,14 @@ const { handleSubmit, pristine, reset, submitting } = props;
                   value={option.id}
                   label={option.text}
                   required
+                  className="list-group-item"
                 />
               );
             })}
           </Field>
         </div>
       </div>
+      </Wrapper>
     );
   });
   console.log(props.formData);
