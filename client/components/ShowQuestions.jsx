@@ -6,6 +6,15 @@ import { connect } from "react-redux";
 
 import * as actions from "../actions";
 
+import getMuiTheme from "material-ui/styles/getMuiTheme";
+
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+
+import Form from "./Material-Form";
+
+import ShowResults from "./ShowResults";
+
+
 
 class ShowQuestions extends Component {
 
@@ -17,7 +26,7 @@ class ShowQuestions extends Component {
 
 	// onSubmit Form values selected by the user will go to the Show Results Component 
 	onSubmit = values => {
-		this.answers.method(values);
+		this.showresults.method(values);
 
 	};
 	render() {
@@ -30,7 +39,7 @@ class ShowQuestions extends Component {
 		}
 		console.log(this.props.mcqs);
 
-	/* Reference added (<Answers onRef={ref => (this.answers = ref)} /> )
+	/* Reference added (<ShowResults onRef={ref => (this.showresults = ref)} /> )
 	to send the user input values to the formData 
 	More on Reactjs Ref https://reactjs.org/docs/refs-and-the-dom.html */
 
@@ -38,7 +47,7 @@ class ShowQuestions extends Component {
 			<MuiThemeProvider muiTheme={getMuiTheme()}>
 				<div style={{ padding: 15 }}>
 					<h2>Elders Coding Challenge</h2>
-					<Answers onRef={ref => (this.answers = ref)} />
+					<ShowResults onRef={ref => (this.showresults = ref)} />
 					<Form
 						formData={formData}
 						onSubmit={e => {

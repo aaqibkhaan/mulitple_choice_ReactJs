@@ -9,7 +9,7 @@ import axios from "axios";
 
 import ShowModal from "./ShowModal";
 
-class Answers extends Component {
+class ShowResults extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -84,4 +84,4 @@ class Answers extends Component {
 	}
 }
 
-export default Answers;
+export default ShowResults;
