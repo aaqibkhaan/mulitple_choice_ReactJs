@@ -1,7 +1,5 @@
 /* eslint-disable  */
 
-/* eslint-disable  */
-
 
 import React, { Component } from "react";
 
@@ -36,9 +34,13 @@ class ShowResults extends Component {
 				this.setState({ correctAnswers: resp.data.answers });
 			});
 	}
+
+	// Delete the reference once component is unmounted
+
 	componentWillUnmount() {
 		this.props.onRef(undefined);
 	}
+	
 	method(values) {
 		this.setState({ userAnswers: values });
 	}
