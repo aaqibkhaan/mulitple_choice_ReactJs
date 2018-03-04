@@ -1,18 +1,16 @@
-// @ flow
+/* eslint-disable */
 
 import React from "react";
 
 import { BrowserRouter, Route } from "react-router-dom";
 
-import Questions from "./Question";
-
-const Dashboard = () => <h1>404 Status , Page NOT FOUND !!!</h1>;
+import Index from "./ShowQuestions";
 
 const App = () => (
 	<div>
 		<BrowserRouter>
 			<div>
-				<Route exact path="/" component={Questions} />
+				<Route exact path="/" component={Index} />
 			</div>
 		</BrowserRouter>
 	</div>
