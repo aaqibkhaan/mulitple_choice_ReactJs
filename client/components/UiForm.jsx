@@ -3,8 +3,6 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
 import { RadioButton, RadioButtonGroup } from "material-ui/RadioButton";
-import answers from "../helpers/showResults";
-
 
 
 // Component Responsible for rendering Field
@@ -21,9 +19,10 @@ const renderRadioGroup = ({ input, ...rest }) => (
 // Basic Boiler Plate for Material Ui Form
 
 const MaterialUiForm = props => {
-  const { handleSubmit, pristine, reset, submitting } = props;
 
-  // Mapping over the Question props coming from ShowQuestions.jsx and Getting Id , Question , and Options array
+const { handleSubmit, pristine, reset, submitting } = props;
+
+// Mapping over the Question props coming from ShowQuestions.jsx and Getting Id , Question , and Options array
 
   const allQuestions = props.formData.questions.map(question => {
     return (
@@ -51,6 +50,7 @@ const MaterialUiForm = props => {
     );
   });
   console.log(props.formData);
+
   return (
     <form onSubmit={handleSubmit}>
       {allQuestions}
@@ -66,7 +66,9 @@ const MaterialUiForm = props => {
   );
 };
 
-// Connected to the reduxForm
+
+
+// Connected to the redux
 
 export default reduxForm({
   form: "MaterialUiForm" // a unique identifier for this form
