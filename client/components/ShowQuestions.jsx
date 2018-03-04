@@ -14,6 +14,8 @@ import Form from "./UiForm";
 
 import ShowResults from "./ShowResults";
 
+import Spinner from "./Spinner";
+
 
 
 class ShowQuestions extends Component {
@@ -55,9 +57,9 @@ class ShowQuestions extends Component {
 					/>
 				</div>
 			</MuiThemeProvider>
-		) : (
-			<div>Loading</div>
-		);
+		) : (<div>
+			<Spinner />
+			</div>		);
 	}
 }
 

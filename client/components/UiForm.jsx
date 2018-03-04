@@ -25,13 +25,14 @@ const { handleSubmit, pristine, reset, submitting } = props;
 
   const allQuestions = props.formData.questions.map(question => {
     return (
-      <div key={question.id} {...question}>
-        <label htmlFor={question.question}>{question.question}</label>
+      <div key={question.id} {...question} className="list-group text-center">
+        <strong><label htmlFor={question.question}>{question.question}</label></strong>
         <div>
           <Field
             key={question.id}
             name={question.id}
             component={renderRadioGroup}
+            className="list-group-item"
           >
             {question.options.map(option => {
               return (

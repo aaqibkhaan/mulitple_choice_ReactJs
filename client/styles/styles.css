@@ -1,0 +1,9 @@
+.spinner {
+  width: 8%;
+}
+
+img.spinner {
+  -webkit-animation: spin 4s infinite linear;
+  -moz-animation: spin 4s infinite linear;
+  animation: spin 4s infinite linear;
+}
