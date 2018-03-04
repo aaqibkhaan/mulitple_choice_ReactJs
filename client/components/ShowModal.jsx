@@ -4,6 +4,7 @@ import React, { Component } from "react";
 
 import Modal from "react-responsive-modal";
 
+import { Portal } from "react-portal";
 
 class ShowModal extends React.Component {
   state = {
@@ -36,8 +37,11 @@ class ShowModal extends React.Component {
     const className = `${
       wrongAnswers.length > 0 || total > 0 ? "text-danger" : " "
     }`;
+
+    // Portal Used to Display as a last node of id= pp
     return (
-<div className={className}>
+      <Portal node={document && document.getElementById("app")}>
+        <div className={className}>
           <button
             className="btn btn-action text-right"
             onClick={this.onOpenModal}
@@ -50,7 +54,7 @@ class ShowModal extends React.Component {
             {littleLorem}
           </Modal>
         </div>
-
+      </Portal>
     );
   }
 }
