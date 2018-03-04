@@ -13,7 +13,8 @@ class Answers extends Component {
 		super(props);
 		this.state = {
 			correctAnswers: [],
-			userAnswers: []
+			userAnswers: [],
+			Total: 0,
 				};
 	}
 
@@ -41,6 +42,30 @@ class Answers extends Component {
 	render() {
 		const userAnswers = this.state.userAnswers;
 		const correctAnswers = this.state.correctAnswers;
+		
+
+
+		let Total = this.state.Total;
+		
+		// Getting the Right Answers
+
+		const correctAnswers = this.state.correctAnswers.map(
+			answer => answer.answer
+		);
+		
+		const userAnswers = this.state.userAnswers;
+		
+		let wrongAnswersArr = [];
+
+		// Finding out the Total Right Question 		
+		
+		const findingTotal = userAnswers.forEach(
+			(value, index) =>
+				value === correctAnswers[index]
+					? (Total += 1)
+					: wrongAnswersArr.push(index)
+		);
+
 		console.log(correctAnswers);
 		return (
 			<div>
@@ -55,3 +80,4 @@ class Answers extends Component {
 }
 
 export default Answers;
+
