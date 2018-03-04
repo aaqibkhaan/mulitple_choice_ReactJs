@@ -35,11 +35,11 @@ const { handleSubmit, pristine, reset, submitting } = props;
 
 // Mapping over the Question props coming from ShowQuestions.jsx and Getting Id , Question , and Options array
 
-  const allQuestions = props.formData.questions.map(question => {
+  const allQuestions = props.formData.questions.map((question , index) => {
     return (
-      <Wrapper>
-      <div key={question.id} {...question} className="list-group text-center">
-        <strong><Label htmlFor={question.question}>{question.question}</Label></strong>
+      <Wrapper key={question.id} {...question}>
+      <div className="list-group text-center">
+        <strong><Label htmlFor={question.question}>{index + 1 } )  {question.question}</Label></strong>
         <div>
           <Field
             key={question.id}
@@ -70,10 +70,10 @@ const { handleSubmit, pristine, reset, submitting } = props;
     <form onSubmit={handleSubmit}>
       {allQuestions}
       <div>
-        <button type="submit" disabled={pristine || submitting}>
+        <button className= "btn btn-primary"  type="submit" disabled={pristine || submitting}>
           Submit
         </button>
-        <button type="button" disabled={pristine || submitting} onClick={reset}>
+        <button className= "btn btn-danger padding-left"  type="button" disabled={pristine || submitting} onClick={reset}>
           Clear Values
         </button>
       </div>

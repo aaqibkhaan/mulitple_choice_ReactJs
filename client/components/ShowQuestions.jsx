@@ -47,7 +47,7 @@ class ShowQuestions extends Component {
 		return formData !== null ? (
 			<MuiThemeProvider muiTheme={getMuiTheme()}>
 				<div style={{ padding: 15 }}>
-					<h2 className="main-title text-center">Elders Coding Challenge</h2>
+					<h3 className="main-title text-center">Multiple Choice Questions in ReactJs/Redux</h3>
 					<ShowResults onRef={ref => (this.showresults = ref)} />
 					<Form
 						formData={formData}

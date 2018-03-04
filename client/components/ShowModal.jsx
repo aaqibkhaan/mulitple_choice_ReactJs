@@ -31,8 +31,8 @@ class ShowModal extends React.Component {
        More Here : https://reactjs.org/docs/fragments.html */
 
       return (
-        <React.Fragment key={value.id}>
-          <p>Q No. {value.id} )</p>
+        <React.Fragment key={value.id} >
+          <p>No. {value.id} )</p>
           <p>{value.question}</p>
           <p>Correct Answer : {value.correctAnswer}</p>
         </React.Fragment>
@@ -48,14 +48,16 @@ class ShowModal extends React.Component {
       <Portal node={document && document.getElementById("app")}>
         <div className={className}>
           <button
-            className="btn btn-action text-right"
+            className="btn btn-action text-right modal-button"
             onClick={this.onOpenModal}
           >
-            Open
+            Click Here to View the Wrong Answers
           </button>
           <Modal open={open} onClose={this.onCloseModal}>
-            <h4>Total : {this.props.total} Out of 10</h4>
-            <h5>Wrong Answers :</h5>
+            <h4 className="padding-bottom-top">Total : {this.props.total} Out of 10</h4>
+            {this.props.total !== 10 ?
+              <h5>Wrong Answers :</h5>
+          : <h5>All Answers are Correct</h5>} 
             {asnwersData}
           </Modal>
         </div>
