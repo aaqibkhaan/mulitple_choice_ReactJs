@@ -7,7 +7,7 @@ import React, { Component } from "react";
 
 import axios from "axios";
 
-import ShowModal from "../components/showModal";
+import ShowModal from "./ShowModal";
 
 class Answers extends Component {
 	constructor(props) {

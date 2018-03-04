@@ -23,8 +23,12 @@ class ShowModal extends React.Component {
     const { open } = this.state;
     const { wrongAnswers, total } = this.props;
 
-    // Displaying on the Modal
-    const littleLorem = wrongAnswers.map(value => {
+    // Displaying the Modal
+    const asnwersData = wrongAnswers.map(value => {
+      
+      /* React Fragment added to group childrens without adding extra node to the DOM
+       More Here : https://reactjs.org/docs/fragments.html */
+
       return (
         <React.Fragment key={value.id}>
           <p>Q No. {value.id} )</p>
@@ -51,7 +55,7 @@ class ShowModal extends React.Component {
           <Modal open={open} onClose={this.onCloseModal}>
             <h4>Total : {this.props.total} Out of 10</h4>
             <h5>Wrong Answers :</h5>
-            {littleLorem}
+            {asnwersData}
           </Modal>
         </div>
       </Portal>
