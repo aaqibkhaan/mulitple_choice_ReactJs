@@ -1,18 +1,27 @@
 // @ flow
 
+/* eslint-disable */
+
 import React from "react";
+
 import { render } from "react-dom";
-import { BrowserRouter } from "react-router-dom";
+
+import { Provider } from "react-redux";
+
+import { createStore, applyMiddleware } from "redux";
+
+import reduxThunk from "redux-thunk";
+
 import App from "./components/App";
 
-const appID = document.getElementById("app");
-const renderApp = () => {
-	render(
-		<BrowserRouter>
-			<App />
-		</BrowserRouter>,
-		appID
-	);
-};
+import reducers from "./reducers";
 
-renderApp();
+// Firstly reducers , Initial State and then Middleware
+const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
+
+render(
+	<Provider store={store}>
+		<App />
+	</Provider>,
+	document.getElementById("app")
+);
