@@ -6,6 +6,15 @@ import Modal from "react-responsive-modal";
 
 import { Portal } from "react-portal";
 
+
+import styled from "styled-components";
+
+const ModalWrapper = styled.div`
+padding-top : 1em;
+padding-bottom : 1em; 
+border-top: 1px solid #2098d1;
+`;
+
 class ShowModal extends React.Component {
   state = {
     open: false
@@ -31,11 +40,13 @@ class ShowModal extends React.Component {
        More Here : https://reactjs.org/docs/fragments.html */
 
       return (
-        <React.Fragment key={value.id} >
+        <ModalWrapper className="grey" key={value.id}>
+        <React.Fragment  >
           <p>No. {value.id} )</p>
           <p>{value.question}</p>
           <p>Correct Answer : {value.correctAnswer}</p>
         </React.Fragment>
+        </ModalWrapper>
       );
     });
 
@@ -54,9 +65,9 @@ class ShowModal extends React.Component {
             Click Here to View the Wrong Answers
           </button>
           <Modal open={open} onClose={this.onCloseModal}>
-            <h4 className="padding-bottom-top">Total : {this.props.total} Out of 10</h4>
+            <h4 className="padding-bottom-top blue">Total : {this.props.total} Out of 10</h4>
             {this.props.total !== 10 ?
-              <h5>Wrong Answers :</h5>
+              <h5 className="padding-bottom">Wrong Answers :</h5>
           : <h5>All Answers are Correct</h5>} 
             {asnwersData}
           </Modal>
