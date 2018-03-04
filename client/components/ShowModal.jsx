@@ -21,11 +21,12 @@ class ShowModal extends React.Component {
 
   render() {
     const { open } = this.state;
+
     const { wrongAnswers, total } = this.props;
 
     // Displaying the Modal
     const asnwersData = wrongAnswers.map(value => {
-      
+
       /* React Fragment added to group childrens without adding extra node to the DOM
        More Here : https://reactjs.org/docs/fragments.html */
 

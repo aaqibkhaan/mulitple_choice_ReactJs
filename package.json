@@ -8,7 +8,7 @@
 		"build": "webpack",
 		"dev": "webpack-dev-server"
 	},
-	"author": "",
+	"author": "aaqibrashid@hotmail.com",
 	"license": "ISC",
 	"devDependencies": {
 		"babel-core": "^6.26.0",

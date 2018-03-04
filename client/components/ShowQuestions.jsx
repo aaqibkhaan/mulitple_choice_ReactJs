@@ -10,7 +10,7 @@ import getMuiTheme from "material-ui/styles/getMuiTheme";
 
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
-import Form from "./Material-Form";
+import Form from "./UiForm";
 
 import ShowResults from "./ShowResults";
 
@@ -27,8 +27,7 @@ class ShowQuestions extends Component {
 	// onSubmit Form values selected by the user will go to the Show Results Component 
 	onSubmit = values => {
 		this.showresults.method(values);
-
-	};
+	}
 	render() {
 		let formData;
 

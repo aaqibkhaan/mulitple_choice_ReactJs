@@ -15,7 +15,6 @@ const renderRadioGroup = ({ input, ...rest }) => (
     onChange={(event, value) => input.onChange(value)}
   />
 );
-
 // Basic Boiler Plate for Material Ui Form
 
 const MaterialUiForm = props => {
@@ -65,8 +64,6 @@ const { handleSubmit, pristine, reset, submitting } = props;
     </form>
   );
 };
-
-
 
 // Connected to the redux
 

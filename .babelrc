@@ -7,8 +7,16 @@
 			},
 			"loose": true,
 			"modules": false
-		}]
+		}],
+		"es2015",
+		"stage-0"
+
 	],
+
+	"plugins": [
+        "babel-plugin-transform-class-properties",
+        "transform-object-rest-spread"
+      ],
   "env": {
     "test": {
       "plugins": [
