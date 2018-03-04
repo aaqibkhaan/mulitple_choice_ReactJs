@@ -2,6 +2,7 @@
 
 /* eslint-disable  */
 
+
 import React, { Component } from "react";
 
 import axios from "axios";
@@ -15,11 +16,14 @@ class Answers extends Component {
 			correctAnswers: [],
 			userAnswers: [],
 			Total: 0,
-				};
+			findingWrongAnswers: [],
+			findingCorrectAnswers: []
+		};
 	}
 
 	/* Reference added to get the user values from the formData 
 	More on Reactjs Ref https://reactjs.org/docs/refs-and-the-dom.html */
+
 
 	componentDidMount() {
 		this.props.onRef(this);
@@ -40,15 +44,11 @@ class Answers extends Component {
 	}
 	
 	render() {
-		const userAnswers = this.state.userAnswers;
-		const correctAnswers = this.state.correctAnswers;
-		
 
 
-		let Total = this.state.Total;
-		
 		// Getting the Right Answers
 
+		let Total = this.state.Total;
 		const correctAnswers = this.state.correctAnswers.map(
 			answer => answer.answer
 		);
@@ -57,8 +57,7 @@ class Answers extends Component {
 		
 		let wrongAnswersArr = [];
 
-		// Finding out the Total Right Question 		
-		
+		// Finding out the Total Right Question 	
 		const findingTotal = userAnswers.forEach(
 			(value, index) =>
 				value === correctAnswers[index]
@@ -66,13 +65,19 @@ class Answers extends Component {
 					: wrongAnswersArr.push(index)
 		);
 
-		console.log(correctAnswers);
+		// Finding the Wrong Number of Answers given by User
+
+	let wrongAnswersByUser = wrongAnswersArr.map(value => {
+			return this.state.correctAnswers[value];
+		});
+
+	
+	
 		return (
 			<div>
 				<ShowModal
 					total={Total}
-					wrongAnswers={findingCorrectAnswer}
-					correctAnswers = {correctAnswers}
+					wrongAnswers={wrongAnswersByUser}
 				/>
 			</div>
 		);
@@ -80,4 +85,3 @@ class Answers extends Component {
 }
 
 export default Answers;
-
