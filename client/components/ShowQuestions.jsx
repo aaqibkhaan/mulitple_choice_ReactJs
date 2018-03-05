@@ -1,14 +1,14 @@
-/* eslint-disable */
+// @ flow
 
 import React, { Component } from "react";
 
 import { connect } from "react-redux";
 
-import * as actions from "../actions";
-
 import getMuiTheme from "material-ui/styles/getMuiTheme";
 
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+
+import PropTypes from "prop-types";
 
 import Form from "./UiForm";
 
@@ -16,6 +16,8 @@ import ShowResults from "./ShowResults";
 
 import Spinner from "./Spinner";
 
+
+import * as actions from "../actions";
 
 
 class ShowQuestions extends Component {
@@ -38,12 +40,13 @@ class ShowQuestions extends Component {
 		} else {
 			formData = null;
 		}
-		console.log(this.props.mcqs);
+
 
 	/* Reference added (<ShowResults onRef={ref => (this.showresults = ref)} /> )
 	to send the user input values to the formData 
 	More on Reactjs Ref https://reactjs.org/docs/refs-and-the-dom.html */
 
+/* eslint-disable */
 		return formData !== null ? (
 			<MuiThemeProvider muiTheme={getMuiTheme()}>
 				<div style={{ padding: 15 }}>
@@ -64,6 +67,16 @@ class ShowQuestions extends Component {
 }
 
 // Connecting Redux to the ShowQuestions Component
+
+ShowQuestions.propTypes = {
+  mcqs: PropTypes.objectOf(PropTypes.array),
+  fetchQuestion: PropTypes.func.isRequired
+};
+
+
+ShowQuestions.defaultProps = {
+	mcqs: PropTypes.isNotNull
+}
 
 function mapStateToProps({ mcq }) {
 	return { mcqs: mcq.data };
