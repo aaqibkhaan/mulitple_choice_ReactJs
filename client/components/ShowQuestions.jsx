@@ -47,6 +47,9 @@ class ShowQuestions extends Component {
 	More on Reactjs Ref https://reactjs.org/docs/refs-and-the-dom.html */
 
 /* eslint-disable */
+
+/* eslint disabled because of onRef - no-return-assign  */
+
 		return formData !== null ? (
 			<MuiThemeProvider muiTheme={getMuiTheme()}>
 				<div style={{ padding: 15 }}>

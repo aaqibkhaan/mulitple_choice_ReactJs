@@ -1,6 +1,3 @@
-/* eslint-disable  */
-
-
 
 
 import React, { Component } from "react";
@@ -15,15 +12,14 @@ class ShowResults extends Component {
 		this.state = {
 			correctAnswers: [],
 			userAnswers: [],
-			Total: 0,
-			findingWrongAnswers: [],
-			findingCorrectAnswers: []
+			Total: 0
 		};
 	}
 
 	/* Reference added to get the user values from the formData 
 	More on Reactjs Ref https://reactjs.org/docs/refs-and-the-dom.html */
 
+/* eslint-disable */
 
 	componentDidMount() {
 		this.props.onRef(this);
@@ -52,16 +48,17 @@ class ShowResults extends Component {
 
 		// Getting the Right Answers
 
-		let Total = this.state.Total;
+		let  Total = this.state.Total;
 		const correctAnswers = this.state.correctAnswers.map(
 			answer => answer.answer
 		);
 		
-		const userAnswers = this.state.userAnswers;
+		let userAnswers = this.state.userAnswers;
 		
-		let wrongAnswersArr = [];
+		const wrongAnswersArr = [];
 
-		// Finding out the Total Right Question 	
+		// Finding out the Total Right Question
+// eslint-disable next-line 	
 		const findingTotal = userAnswers.forEach(
 			(value, index) =>
 				value === correctAnswers[index]
@@ -71,9 +68,9 @@ class ShowResults extends Component {
 
 		// Finding the Wrong Number of Answers given by User
 
-	let wrongAnswersByUser = wrongAnswersArr.map(value => {
-			return this.state.correctAnswers[value];
-		});
+	const wrongAnswersByUser = wrongAnswersArr.map(value => 
+			this.state.correctAnswers[value]
+		);
 
 	
 	
