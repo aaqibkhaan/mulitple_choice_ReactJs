@@ -1,7 +1,10 @@
-/* eslint-disable */
 
 import React from "react";
+
 import { Field, reduxForm } from "redux-form";
+
+import PropTypes from "prop-types";
+
 import { RadioButton, RadioButtonGroup } from "material-ui/RadioButton";
 
 import styled from "styled-components";
@@ -19,14 +22,17 @@ padding-bottom: 1rem;
 
 // Component Responsible for rendering Field
 
+/* eslint-disable */
+
 const renderRadioGroup = ({ input, ...rest }) => (
   <RadioButtonGroup
     {...input}
     {...rest}
     valueSelected={input.value}
     onChange={(event, value) => input.onChange(value)}
-  />
-);
+  />);
+/* eslint-enable */
+
 // Basic Boiler Plate for Material Ui Form
 
 const MaterialUiForm = props => {
@@ -35,8 +41,7 @@ const { handleSubmit, pristine, reset, submitting } = props;
 
 // Mapping over the Question props coming from ShowQuestions.jsx and Getting Id , Question , and Options array
 
-  const allQuestions = props.formData.questions.map((question , index) => {
-    return (
+  const allQuestions = props.formData.questions.map((question , index) => 
       <Wrapper key={question.id} {...question}>
       <div className="list-group text-center">
         <strong><Label htmlFor={question.question}>{index + 1 } )  {question.question}</Label></strong>
@@ -47,8 +52,7 @@ const { handleSubmit, pristine, reset, submitting } = props;
             component={renderRadioGroup}
             
           >
-            {question.options.map(option => {
-              return (
+            {question.options.map(option => 
                 <RadioButton
                   key={option.id}
                   value={option.id}
@@ -56,15 +60,12 @@ const { handleSubmit, pristine, reset, submitting } = props;
                   required
                   className="list-group-item"
                 />
-              );
-            })}
+            )}
           </Field>
         </div>
       </div>
       </Wrapper>
-    );
-  });
-  console.log(props.formData);
+  );
 
   return (
     <form onSubmit={handleSubmit}>
@@ -80,6 +81,19 @@ const { handleSubmit, pristine, reset, submitting } = props;
     </form>
   );
 };
+
+MaterialUiForm.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  pristine : PropTypes.bool.isRequired,
+  reset : PropTypes.func.isRequired,
+  submitting: PropTypes.bool.isRequired,
+  formData: PropTypes.objectOf(PropTypes.array).isRequired
+};
+
+
+MaterialUiForm.defaultProps = {
+  input: PropTypes.isNotNull
+}
 
 // Connected to the redux
 
